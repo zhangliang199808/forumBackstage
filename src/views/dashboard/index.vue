@@ -5,10 +5,7 @@
 </template>
 
 <script>
-// import { mockXHR } from 'mock'
 import { mapGetters } from 'vuex'
-// import Axios from 'axios'
-import request from '../../utils/request'
 
 export default {
   name: 'Dashboard',
@@ -16,28 +13,6 @@ export default {
     ...mapGetters([
       'name'
     ])
-  },
-  data() {
-    return {
-    }
-  },
-  created() {
-    this.getNewsList()
-  },
-  methods: {
-    getNewsList() {
-      console.log(123)
-      request({
-        method: 'get',
-        url: '/mock/news',
-        success: (res) => {
-          console.log(res,'mock返回')
-        }
-      })
-      // request.get('/mock/news').then(res => { // url即在mock.js中定义的
-      //   console.log(res.data) // 打印一下响应数据
-      // })
-    }
   }
 }
 </script>

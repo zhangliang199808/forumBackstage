@@ -79,9 +79,7 @@ module.exports = {
         symbolId: 'icon-[name]'
       })
       .end()
-    config
-      .plugin('webpack-bundle-analyzer')
-      .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
+
     config
       .when(process.env.NODE_ENV !== 'development',
         config => {
