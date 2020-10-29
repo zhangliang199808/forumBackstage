@@ -22,3 +22,13 @@ export function logout() {
     method: 'post'
   })
 }
+
+
+// 登录接口
+export function getLogin() {
+  return request({
+    url: '/login/',
+    method: 'post'
+  })
+}
+
