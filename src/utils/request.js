@@ -8,19 +8,24 @@ const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
   // baseURL: 'http://47.101.206.36:9000', 
   // withCredentials: true, // send cookies when cross-domain requests
-  timeout: 5000 // request timeout
+  timeout: 6000 // request timeout
 })
 
 // request interceptor
 service.interceptors.request.use(
   config => {
     // do something before request is sent
-
+    
     if (store.getters.token) {
       // let each request carry token
       // ['X-Token'] is a custom headers key
       // please modify it according to the actual situation
       config.headers['X-Token'] = getToken()
+    }
+    if (config.method == 'post') {
+      config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+    } else if (config.method == 'get') {
+
     }
     return config
   },

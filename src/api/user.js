@@ -25,10 +25,11 @@ export function logout() {
 
 
 // 登录接口
-export function getLogin() {
+export function getLogin(data) {
   return request({
     url: '/login/',
-    method: 'post'
+    method: 'post',
+    data
   })
 }
 
