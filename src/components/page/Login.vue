@@ -52,13 +52,14 @@ export default {
                     data.append('password',this.param.password)
                     getLogin(data)
                         .then(res => {
-                            console.log(res,'123')
                             if (res.code == 200) {
                                 this.$message.success('登录成功');
-                                _this.$router.push('/');
-                                let userInfo = JSON.stringify({username: res.username})
+                                let userInfo = JSON.stringify(res.data)
                                 localStorage.setItem('userInfo', userInfo);
                                 localStorage.setItem('token', res.token);
+                                _this.$router.push('/');
+                            } else {
+                                this.$message.error(res.message)
                             }
                         })
                         .catch(err => {
